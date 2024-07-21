@@ -234,6 +234,11 @@ const PostmanUI = () => {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-[#2E2E2E] text-white p-4">
+            <div className="md:col-span-4 bg-[#1C1C1C] rounded-lg shadow-md p-4 mb-4">
+                <h2 className="text-xl font-bold mb-2">Welcome to my website!</h2>
+                <p className="mb-2">Try out my APIs to experience some part of the backend development.</p>
+                <p>To get started, click on the send request button and check what happens in the response.</p>
+            </div>
             <div className="md:col-span-1 bg-[#1C1C1C] rounded-lg shadow-md p-4">
                 <h2 className="text-xl font-bold mb-4">APIs</h2>
                 <ul className="space-y-2">
