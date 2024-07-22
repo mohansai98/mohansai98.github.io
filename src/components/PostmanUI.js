@@ -46,14 +46,14 @@ const PostmanUI = () => {
 
     const staticApiResponses = {
         "GET api/home": {
-            welcomeMessage: "Welcome!",
-            instructions: "To use this website, select an API from the list or enter it directly in the 'URL' field.",
+            name: "Mohan Sai Singu",
+            skills: ["Full Stack Developer", "Java Enthusiast", "Cloud Practitioner"]
         },
         "GET api/about": {
-            about: "I am a software developer with a passion for creating web applications.",
+            about: "I'm a software developer with a passion for creating robust web applications. With a strong foundation in full-stack development, I thrive on turning complex problems into elegant solutions.\n My journey in tech has led me through various exciting projects, from revenue management systems to sentiment analysis models. I'm always eager to learn and apply new technologies to create impactful software.",
             contact: {
-                email: "mohansaisingu23@gmail.com",
-                linkedIn: "linkedin.com/in/mohan-sai-singu",
+                linkedIn: "https://linkedin.com/in/mohan-sai-singu",
+                gitHub: "https://github.com/mohansai98",
             }
         },
         "GET api/experience": {
@@ -64,37 +64,16 @@ const PostmanUI = () => {
                     company: "Tata Consultancy Services (TCS)",
                     startDate: "2019-05-30",
                     endDate: "2022-07-22",
-                    description: "For more details use the following url : api/experience/tcs"
+                    link: "https://tcs.com/",
+                    description: "Developed critical components of the Revenue Management System.\n Created a user-friendly Budget Preparation tool with data analysis features.\n Led the revamp of the Pension Portal, enhancing functionality and user experience"
                 },
             ],
         },
-        "GET api/experience/tcs": {
-            projects: [
-                {
-                    name: "Revenue Management System",
-                    role: "Developer",
-                    technologies: ["Java", "Spring Boot", "JPA", "Postgres", "Angular"],
-                    description: "Implemented streamlined transaction workflows to enhance financial reporting efficiency."
-                },
-                {
-                    name: "Budget Preparation",
-                    role: "Developer",
-                    technologies: ["Java", "Spring Boot", "JPA", "Postgres", "Angular"],
-                    description: "Built user-friendly budgeting tool, incorporating data analysis features (Web-Based Dashboard), aiding decision-making within the finance department."
-                },
-                {
-                    name: "Pension Portal",
-                    role: "Developer",
-                    technologies: ["Java", "Spring MVC", "JSP", "Oracle", "Bootstrap", "JQuery"],
-                    description: "Revamped pension portal using Spring, introducing a streamlined service layer and REST APIs to enhance data access and overall functionality."
-                }
-            ]
-        },
         "GET api/projects": {
             projects: [
-                { name: "Task Management Application", description: "Full stack application built using AWS services" },
-                { name: "9 Men Morris Game", description: "Built 9 men morris game using python, pygame" },
-                { name: "Sentiment Analysis on Twitter data", description: "Using Big data technologies, built a sentiment analysis model on twitter data" }
+                { name: "Task Management Application", description: "A full-stack application leveraging AWS services for efficient task tracking and management.", link: "https://github.com/task-management-cc/task-management" },
+                { name: "9 Men Morris Game", description: "A classic board game implemented using Python and Pygame, showcasing algorithmic thinking and game design principles.", link: "https://github.com/UMKC-Glitchers/9-men-morris" },
+                { name: "Twitter Sentiment Analysis", description: "A big data project analyzing Twitter data to determine sentiment, utilizing advanced data processing techniques and machine learning algorithms.", link: "#"}
             ]
         },
         "GET api/skills": {
@@ -122,6 +101,7 @@ const PostmanUI = () => {
             ]
         };
         displayEndpoints(home.endpoints);
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
@@ -215,6 +195,7 @@ const PostmanUI = () => {
         if (typeof json !== 'string') {
             json = JSON.stringify(json, null, 2);
         }
+        // eslint-disable-next-line
         return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
             let cls = 'text-pink-400';
             if (/^"/.test(match)) {
@@ -245,11 +226,10 @@ const PostmanUI = () => {
                     {myApiCollections.map((collection, index) => (
                         <li
                             key={index}
-                            className={`cursor-pointer p-2 rounded transition-colors ${
-                                selectedCollection === collection
+                            className={`cursor-pointer p-2 rounded transition-colors ${selectedCollection === collection
                                     ? 'bg-orange-500 text-white'
                                     : 'hover:bg-[#3C3C3C]'
-                            }`}
+                                }`}
                             onClick={() => {
                                 setSelectedCollection(collection);
                                 displayEndpoints(collection.endpoints);
