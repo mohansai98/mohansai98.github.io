@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBriefcase, faCode, faProjectDiagram, faEnvelope, faArrowRight, faTimes } from '@fortawesome/free-solid-svg-icons';
-import taskLogo from './images/task-manager.jpeg';
-import photo from './images/photo.jpg';
-import tcsLogo from './images/tcs-logo.png';
-import NineMenLogo from './images/9-men.png';
-import TwitterLogo from './images/twitter-logo.png';
+import taskLogo from '../components/images/task-manager.jpeg';
+import photo from '../components/images/photo.jpg';
+import tcsLogo from '../components/images/tcs-logo.png';
+import NineMenLogo from '../components/images/9-men.png';
+import TwitterLogo from '../components/images/twitter-logo.png';
 
 const SPA = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
