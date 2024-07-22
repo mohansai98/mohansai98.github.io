@@ -241,34 +241,37 @@ const PostmanUI = () => {
                 </ul>
             </div>
             <div className="md:col-span-3 space-y-4">
-                <div className="bg-[#1C1C1C] rounded-lg shadow-md p-4">
-                    <h2 className="text-xl font-bold mb-4">API Request</h2>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className="flex space-x-4">
-                            <select
-                                value={method}
-                                onChange={(e) => {
-                                    setMethod(e.target.value);
-                                    setShowRequestBody(e.target.value === 'POST');
-                                }}
-                                className="bg-[#3C3C3C] border border-orange-500 rounded p-2 text-white"
-                            >
-                                <option value="GET">GET</option>
-                                <option value="POST">POST</option>
-                            </select>
-                            <input
-                                type="text"
-                                value={url}
-                                onChange={(e) => setUrl(e.target.value)}
-                                placeholder="api/endpoint"
-                                className="flex-grow bg-[#3C3C3C] border border-orange-500 rounded p-2 text-white"
-                            />
-                            <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors flex items-center">
-                                Send Request
-                            </button>
-                        </div>
-                    </form>
-                </div>
+            <div className="bg-[#1C1C1C] rounded-lg shadow-md p-4">
+    <h2 className="text-xl font-bold mb-4 text-white">API Request</h2>
+    <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+            <select
+                value={method}
+                onChange={(e) => {
+                    setMethod(e.target.value);
+                    setShowRequestBody(e.target.value === 'POST');
+                }}
+                className="w-full sm:w-auto bg-[#3C3C3C] border border-orange-500 rounded p-2 text-white"
+            >
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+            </select>
+            <input
+                type="text"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder="api/endpoint"
+                className="w-full sm:flex-grow bg-[#3C3C3C] border border-orange-500 rounded p-2 text-white"
+            />
+            <button 
+                type="submit" 
+                className="w-full sm:w-auto bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors flex items-center justify-center"
+            >
+                Send Request
+            </button>
+        </div>
+    </form>
+</div>
                 {showRequestBody && (
                     <div className="bg-[#1C1C1C] rounded-lg shadow-md p-4">
                         <h2 className="text-xl font-bold mb-4">Request Body</h2>

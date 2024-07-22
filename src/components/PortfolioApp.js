@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBriefcase, faCode, faProjectDiagram, faEnvelope, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin as fabLinkedin, faGithub as fabGithub } from '@fortawesome/free-brands-svg-icons';
 import PostmanUI from './PostmanUI';
 import SPA from './SPA';
 
@@ -22,6 +23,8 @@ const PortfolioApp = () => {
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+        // Prevent scrolling when menu is open
+        document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
     };
 
     const pageVariants = {
@@ -38,7 +41,7 @@ const PortfolioApp = () => {
 
     return (
         <div className={`flex flex-col min-h-screen ${isPostmanUI ? 'bg-postman-dark-gray' : 'bg-white'}`}>
-            <nav className={`shadow-md sticky top-0 z-10 ${isPostmanUI ? 'bg-postman-orange' : 'bg-white'}`}>
+            <nav className={`shadow-md sticky top-0 z-20 ${isPostmanUI ? 'bg-postman-orange' : 'bg-white'}`}>
                 <div className="container mx-auto px-4">
                     <div className="flex justify-between items-center py-4">
                         <div className="flex items-center">
@@ -59,28 +62,29 @@ const PortfolioApp = () => {
                                 onClick={toggleUI}
                             >
                                 <div
-                                    className={`bg-white w-5 h-5 rounded-full shadow-md transform duration-300 ease-in-out ${isPostmanUI ? 'translate-x-7' : ''
-                                        }`}
+                                    className={`bg-white w-5 h-5 rounded-full shadow-md transform duration-300 ease-in-out ${isPostmanUI ? 'translate-x-7' : ''}`}
                                 ></div>
                             </div>
-                            <button
-                                className="md:hidden text-2xl"
-                                onClick={toggleMenu}
-                            >
-                                <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} className={isPostmanUI ? 'text-white' : 'text-gray-800'} />
-                            </button>
+                            {!isPostmanUI && (
+                                <button
+                                    className="md:hidden text-2xl"
+                                    onClick={toggleMenu}
+                                >
+                                    <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} className={isPostmanUI ? 'text-white' : 'text-gray-800'} />
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
             </nav>
             {!isPostmanUI && (
-                <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} ${isPostmanUI ? 'bg-postman-dark-gray text-white' : 'bg-white text-gray-800'}`}>
-                    <div className="container mx-auto px-4 py-2 space-y-2">
-                        <a href="#about" className="block" onClick={toggleMenu}><FontAwesomeIcon icon={faUser} className="mr-2" />About</a>
-                        <a href="#experience" className="block" onClick={toggleMenu}><FontAwesomeIcon icon={faBriefcase} className="mr-2" />Experience</a>
-                        <a href="#skills" className="block" onClick={toggleMenu}><FontAwesomeIcon icon={faCode} className="mr-2" />Skills</a>
-                        <a href="#projects" className="block" onClick={toggleMenu}><FontAwesomeIcon icon={faProjectDiagram} className="mr-2" />Projects</a>
-                        <a href="#contact" className="block" onClick={toggleMenu}><FontAwesomeIcon icon={faEnvelope} className="mr-2" />Contact</a>
+                <div className={`md:hidden fixed top-16 left-0 right-0 bottom-0 z-10 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} ${isPostmanUI ? 'bg-postman-dark-gray text-white' : 'bg-white text-gray-800'}`}>
+                    <div className="container mx-auto px-4 py-4 space-y-4">
+                        <a href="#about" className="block text-lg" onClick={toggleMenu}><FontAwesomeIcon icon={faUser} className="mr-2" />About</a>
+                        <a href="#experience" className="block text-lg" onClick={toggleMenu}><FontAwesomeIcon icon={faBriefcase} className="mr-2" />Experience</a>
+                        <a href="#skills" className="block text-lg" onClick={toggleMenu}><FontAwesomeIcon icon={faCode} className="mr-2" />Skills</a>
+                        <a href="#projects" className="block text-lg" onClick={toggleMenu}><FontAwesomeIcon icon={faProjectDiagram} className="mr-2" />Projects</a>
+                        <a href="#contact" className="block text-lg" onClick={toggleMenu}><FontAwesomeIcon icon={faEnvelope} className="mr-2" />Contact</a>
                     </div>
                 </div>
             )}
@@ -100,6 +104,24 @@ const PortfolioApp = () => {
                     </motion.div>
                 </AnimatePresence>
             </main>
+            <footer className={isPostmanUI ? "bg-[#1C1C1C] text-white py-8" : "bg-gray-800 text-white py-8"}>
+                <div className="container mx-auto px-4 text-center">
+                    <h3 className="text-xl text-gray-400 mb-4">Let's Connect</h3>
+                    <div className="flex justify-center space-x-6">
+                        <a href="https://www.linkedin.com/in/mohan-sai-singu/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition duration-300">
+                            <FontAwesomeIcon icon={fabLinkedin} size="2x" />
+                            <span className="sr-only">LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/mohansai98" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition duration-300">
+                            <FontAwesomeIcon icon={fabGithub} size="2x" />
+                            <span className="sr-only">GitHub</span>
+                        </a>
+                    </div>
+                    <p className="mt-4 text-sm text-gray-400">
+                        &copy; {new Date().getFullYear()} Mohan Sai Singu
+                    </p>
+                </div>
+            </footer>
         </div>
     );
 };

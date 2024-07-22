@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBriefcase, faCode, faProjectDiagram, faEnvelope, faArrowRight, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin as fabLinkedin, faGithub as fabGithub } from '@fortawesome/free-brands-svg-icons';
 import taskLogo from './images/task-manager.jpeg';
 import photo from './images/photo.jpg';
 import tcsLogo from './images/tcs-logo.png';
@@ -249,19 +248,7 @@ const SPA = () => {
         </div>
       </motion.section>
 
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2024 Mohan Sai Singu. All rights reserved.</p>
-          <div className="mt-4 space-x-4">
-            <a href="https://www.linkedin.com/in/mohan-sai-singu/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition duration-300">
-              <FontAwesomeIcon icon={fabLinkedin} size="lg" />
-            </a>
-            <a href="https://github.com/mohansai98" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition duration-300">
-              <FontAwesomeIcon icon={fabGithub} size="lg" />
-            </a>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };
