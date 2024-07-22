@@ -102,7 +102,7 @@ const SPA = () => {
           <div className="max-w-3xl mx-auto">
             <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
               <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
-              <h3 className="text-xl font-semibold mb-2">Full Stack Developer</h3> 
+              <h3 className="text-xl font-semibold mb-2">Software Engineer</h3> 
               <h4 className="text-lg text-gray-600 mb-2">Tata Consultancy Services 
                 <a href='https://tcs.com' target='_blank' rel="noreferrer"><img src={tcsLogo} alt="TCS Logo" className="h-6 w-auto" /></a>
               </h4>

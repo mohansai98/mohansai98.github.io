@@ -60,7 +60,7 @@ const PostmanUI = () => {
             experience: [
                 {
                     id: 1,
-                    title: "Full Stack Developer",
+                    title: "Software Engineer",
                     company: "Tata Consultancy Services (TCS)",
                     startDate: "2019-05-30",
                     endDate: "2022-07-22",
