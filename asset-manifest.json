@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.bee985e6.css",
-    "main.js": "/static/js/main.5a867019.js",
-    "static/js/453.acca0757.chunk.js": "/static/js/453.acca0757.chunk.js",
-    "static/media/photo.jpg": "/static/media/photo.9818c01865b17b2b7759.jpg",
-    "static/media/9-men.png": "/static/media/9-men.30b59a84b4d35a606413.png",
-    "static/media/twitter-logo.png": "/static/media/twitter-logo.3324727f4c076112cd9b.png",
-    "static/media/tcs-logo.png": "/static/media/tcs-logo.e3bf551cf128afb08d62.png",
-    "static/media/task-manager.jpeg": "/static/media/task-manager.616975cc8fc1fa5dc921.jpeg",
-    "index.html": "/index.html",
-    "main.bee985e6.css.map": "/static/css/main.bee985e6.css.map",
-    "main.5a867019.js.map": "/static/js/main.5a867019.js.map",
-    "453.acca0757.chunk.js.map": "/static/js/453.acca0757.chunk.js.map"
+    "main.css": "/my-portfolio/static/css/main.bee985e6.css",
+    "main.js": "/my-portfolio/static/js/main.4cc6ea8e.js",
+    "static/js/453.acca0757.chunk.js": "/my-portfolio/static/js/453.acca0757.chunk.js",
+    "static/media/photo.jpg": "/my-portfolio/static/media/photo.9818c01865b17b2b7759.jpg",
+    "static/media/9-men.png": "/my-portfolio/static/media/9-men.30b59a84b4d35a606413.png",
+    "static/media/twitter-logo.png": "/my-portfolio/static/media/twitter-logo.3324727f4c076112cd9b.png",
+    "static/media/tcs-logo.png": "/my-portfolio/static/media/tcs-logo.e3bf551cf128afb08d62.png",
+    "static/media/task-manager.jpeg": "/my-portfolio/static/media/task-manager.616975cc8fc1fa5dc921.jpeg",
+    "index.html": "/my-portfolio/index.html",
+    "main.bee985e6.css.map": "/my-portfolio/static/css/main.bee985e6.css.map",
+    "main.4cc6ea8e.js.map": "/my-portfolio/static/js/main.4cc6ea8e.js.map",
+    "453.acca0757.chunk.js.map": "/my-portfolio/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bee985e6.css",
-    "static/js/main.5a867019.js"
+    "static/js/main.4cc6ea8e.js"
   ]
 }
