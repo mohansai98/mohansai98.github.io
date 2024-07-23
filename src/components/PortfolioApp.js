@@ -60,11 +60,12 @@ const PortfolioApp = () => {
                             <div
                                 className="w-14 h-7 flex items-center bg-orange-700 rounded-full p-1 cursor-pointer"
                                 onClick={toggleUI}
-                            >
+                            > 
                                 <div
                                     className={`bg-white w-5 h-5 rounded-full shadow-md transform duration-300 ease-in-out ${isPostmanUI ? 'translate-x-7' : ''}`}
                                 ></div>
                             </div>
+                            <p style={{marginLeft: 8+'px'}} className={isPostmanUI ? 'text-white' : 'text-gray-800'}>{isPostmanUI ? 'UI' : 'Postman'}</p>
                             {!isPostmanUI && (
                                 <button
                                     className="md:hidden text-2xl"
