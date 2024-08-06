@@ -7,6 +7,7 @@ import photo from '../components/images/photo.jpg';
 import tcsLogo from '../components/images/tcs-logo.png';
 import NineMenLogo from '../components/images/9-men.png';
 import TwitterLogo from '../components/images/twitter-logo.png';
+import JobMatchLogo from '../components/images/job-match.png';
 
 const SPA = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -154,7 +155,15 @@ const SPA = () => {
             <FontAwesomeIcon icon={faProjectDiagram} className="mr-2" />
             Projects
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8">
+          <div className="bg-white rounded-lg overflow-hidden shadow-md">
+              <img src={JobMatchLogo} alt="Job Match Analyzer" className="w-full h-72 object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Job Match Analyzer</h3>
+                <p className="text-gray-600 mb-4">A full-stack AI-powered application to analyze resume-job description compatibility</p>
+                <a href="https://www.job-match-analyzer.live/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
+              </div>
+            </div>
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
               <img src={taskLogo} alt="Task Management App" className="w-full h-72 object-cover" />
               <div className="p-6">
