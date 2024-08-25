@@ -71,6 +71,7 @@ const PostmanUI = () => {
         },
         "GET api/projects": {
             projects: [
+                { name: "Plan My Trip", description: "A travel planning app to manage your itineraries and explore destinations.", link: "https://www.planmytrip.live/"},
                 { name: "Job Match Analyzer", description: "A full-stack AI-powered application to analyze resume-job description compatibility", link: "https://www.job-match-analyzer.live/" },
                 { name: "Task Management Application", description: "A full-stack application leveraging AWS services for efficient task tracking and management.", link: "https://github.com/task-management-cc/task-management" },
                 { name: "9 Men Morris Game", description: "A classic board game implemented using Python and Pygame, showcasing algorithmic thinking and game design principles.", link: "https://github.com/UMKC-Glitchers/9-men-morris" },

@@ -8,6 +8,7 @@ import tcsLogo from '../components/images/tcs-logo.png';
 import NineMenLogo from '../components/images/9-men.png';
 import TwitterLogo from '../components/images/twitter-logo.png';
 import JobMatchLogo from '../components/images/job-match.png';
+import PlanMyTripLogo from '../components/images/plan-my-trip.png';
 
 const SPA = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -103,8 +104,8 @@ const SPA = () => {
           <div className="max-w-3xl mx-auto">
             <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
               <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
-              <h3 className="text-xl font-semibold mb-2">Software Engineer</h3> 
-              <h4 className="text-lg text-gray-600 mb-2">Tata Consultancy Services 
+              <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
+              <h4 className="text-lg text-gray-600 mb-2">Tata Consultancy Services
                 <a href='https://tcs.com' target='_blank' rel="noreferrer"><img src={tcsLogo} alt="TCS Logo" className="h-6 w-auto" /></a>
               </h4>
               <p className="text-gray-500 mb-4">May 2019 - July 2022</p>
@@ -157,6 +158,14 @@ const SPA = () => {
           </h2>
           <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8">
           <div className="bg-white rounded-lg overflow-hidden shadow-md">
+              <img src={PlanMyTripLogo} alt="Plan My Trip" className="w-full h-72 object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Plan My Trip</h3>
+                <p className="text-gray-600 mb-4">A travel planning app to manage your itineraries and explore destinations.</p>
+                <a href="https://www.planmytrip.live/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg overflow-hidden shadow-md">
               <img src={JobMatchLogo} alt="Job Match Analyzer" className="w-full h-72 object-cover" />
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Job Match Analyzer</h3>
@@ -257,7 +266,7 @@ const SPA = () => {
         </div>
       </motion.section>
 
-      
+
     </div>
   );
 };
