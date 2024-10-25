@@ -105,10 +105,24 @@ const SPA = () => {
             <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
               <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
               <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
+              <h4 className="text-lg text-gray-600 mb-2">Shineteck
+              </h4>
+              <p className="text-gray-500 mb-4">Sep 2023 - Present</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Developed an ecommerce application</li>
+                <li>Led backend development using Spring Boot, MongoDB.</li>
+                <li>Built responsive frontend with Next.js, TypeScript.</li>
+              </ul>
+            </div>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
+              <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
+              <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
               <h4 className="text-lg text-gray-600 mb-2">Tata Consultancy Services
                 <a href='https://tcs.com' target='_blank' rel="noreferrer"><img src={tcsLogo} alt="TCS Logo" className="h-6 w-auto" /></a>
               </h4>
-              <p className="text-gray-500 mb-4">May 2019 - July 2022</p>
+              <p className="text-gray-500 mb-4">May 2018 - July 2022</p>
               <ul className="list-disc list-inside space-y-2">
                 <li>Developed critical components of the Revenue Management System</li>
                 <li>Created a user-friendly Budget Preparation tool with data analysis features</li>

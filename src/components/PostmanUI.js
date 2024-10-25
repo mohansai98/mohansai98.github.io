@@ -61,9 +61,18 @@ const PostmanUI = () => {
                 {
                     id: 1,
                     title: "Software Engineer",
+                    company: "Shineteck",
+                    startDate: "Sep 2023",
+                    endDate: "Present",
+                    description: "Developed an ecommerce application\n Led backend development using Spring Boot, MongoDB\n Built responsive frontend with Next.js, TypeScript"
+
+                },
+                {
+                    id: 2,
+                    title: "Software Engineer",
                     company: "Tata Consultancy Services (TCS)",
-                    startDate: "2019-05-30",
-                    endDate: "2022-07-22",
+                    startDate: "May 2018",
+                    endDate: "Jul 2022",
                     link: "https://tcs.com/",
                     description: "Developed critical components of the Revenue Management System.\n Created a user-friendly Budget Preparation tool with data analysis features.\n Led the revamp of the Pension Portal, enhancing functionality and user experience"
                 },
