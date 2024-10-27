@@ -122,7 +122,7 @@ const SPA = () => {
               <h4 className="text-lg text-gray-600 mb-2">Tata Consultancy Services
                 <a href='https://tcs.com' target='_blank' rel="noreferrer"><img src={tcsLogo} alt="TCS Logo" className="h-6 w-auto" /></a>
               </h4>
-              <p className="text-gray-500 mb-4">May 2018 - July 2022</p>
+              <p className="text-gray-500 mb-4">May 2019 - July 2022</p>
               <ul className="list-disc list-inside space-y-2">
                 <li>Developed critical components of the Revenue Management System</li>
                 <li>Created a user-friendly Budget Preparation tool with data analysis features</li>

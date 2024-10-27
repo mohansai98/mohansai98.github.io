@@ -71,7 +71,7 @@ const PostmanUI = () => {
                     id: 2,
                     title: "Software Engineer",
                     company: "Tata Consultancy Services (TCS)",
-                    startDate: "May 2018",
+                    startDate: "May 2019",
                     endDate: "Jul 2022",
                     link: "https://tcs.com/",
                     description: "Developed critical components of the Revenue Management System.\n Created a user-friendly Budget Preparation tool with data analysis features.\n Led the revamp of the Pension Portal, enhancing functionality and user experience"
