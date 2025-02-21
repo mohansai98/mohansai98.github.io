@@ -80,7 +80,7 @@ const SPA = () => {
             <div className="md:w-1/2 md:pl-8">
               <p className="text-lg mb-4">
                 I'm a software engineer who enjoys building web applications. I have experience working on microservices and machine learning models. I like solving challenging problems and learning new technologies to improve the software I develop.
-</p>
+              </p>
               <a
                 href="#contact"
                 className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block"
@@ -104,7 +104,7 @@ const SPA = () => {
               <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
               <h4 className="text-lg text-gray-600 mb-2">Shineteck
               </h4>
-              <p className="text-gray-500 mb-4">Sep 2023 - Present</p>
+              <p className="text-gray-500 mb-4">Sep 2024 - Present</p>
               <ul className="list-disc list-inside space-y-2">
                 <li>Developed an ecommerce application</li>
                 <li>Led backend development using Spring Boot, MongoDB.</li>

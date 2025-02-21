@@ -62,7 +62,7 @@ const PostmanUI = () => {
                     id: 1,
                     title: "Software Engineer",
                     company: "Shineteck",
-                    startDate: "Sep 2023",
+                    startDate: "Sep 2024",
                     endDate: "Present",
                     description: "Developed an ecommerce application\n Led backend development using Spring Boot, MongoDB\n Built responsive frontend with Next.js, TypeScript"
 
