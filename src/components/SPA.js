@@ -79,11 +79,8 @@ const SPA = () => {
             </div>
             <div className="md:w-1/2 md:pl-8">
               <p className="text-lg mb-4">
-                I'm a software engineer with a passion for creating robust web applications. With a strong foundation in full-stack development, I thrive on turning complex problems into elegant solutions.
-              </p>
-              <p className="text-lg mb-6">
-                My journey in tech has led me through various exciting projects, from revenue management systems to sentiment analysis models. I'm always eager to learn and apply new technologies to create impactful software.
-              </p>
+                I'm a software engineer who enjoys building web applications. I have experience working on microservices and machine learning models. I like solving challenging problems and learning new technologies to improve the software I develop.
+</p>
               <a
                 href="#contact"
                 className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block"
