@@ -50,7 +50,7 @@ const PostmanUI = () => {
             skills: ["Full Stack Developer", "Java Enthusiast", "Cloud Practitioner"]
         },
         "GET api/about": {
-            about: "I'm a software developer with a passion for creating robust web applications. With a strong foundation in full-stack development, I thrive on turning complex problems into elegant solutions.\n My journey in tech has led me through various exciting projects, from revenue management systems to sentiment analysis models. I'm always eager to learn and apply new technologies to create impactful software.",
+            about: "I'm a software engineer who enjoys building web applications. I have experience working on microservices and machine learning models. I like solving challenging problems and learning new technologies to improve the software I develop.",
             contact: {
                 linkedIn: "https://linkedin.com/in/mohan-sai-singu",
                 gitHub: "https://github.com/mohansai98",
