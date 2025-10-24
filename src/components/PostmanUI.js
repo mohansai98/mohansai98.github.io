@@ -60,15 +60,24 @@ const PostmanUI = () => {
             experience: [
                 {
                     id: 1,
-                    title: "Software Engineer",
-                    company: "Shineteck",
-                    startDate: "Sep 2022",
+                    title: "Salesforce Developer",
+                    company: "Nevada DMV",
+                    startDate: "May 2025",
                     endDate: "Present",
-                    description: "Developed an ecommerce application\n Led backend development using Spring Boot, MongoDB\n Built responsive frontend with Next.js, TypeScript"
+                    description: "Transitioned DMV processes from manual to online\n Implemented dynamic document generation for complaint cases\n Automated case workflows using Salesforce OmniStudio, LWC, SOQL"
 
                 },
                 {
                     id: 2,
+                    title: "Software Engineer",
+                    company: "Shineteck",
+                    startDate: "Sep 2022",
+                    endDate: "May 2025",
+                    description: "Developed an ecommerce application\n Led backend development using Spring Boot, MongoDB\n Built responsive frontend with Next.js, TypeScript"
+
+                },
+                {
+                    id: 3,
                     title: "Software Engineer",
                     company: "Tata Consultancy Services (TCS)",
                     startDate: "May 2019",
@@ -80,8 +89,8 @@ const PostmanUI = () => {
         },
         "GET api/projects": {
             projects: [
-                { name: "Plan My Trip", description: "A travel planning app to manage your itineraries and explore destinations.", link: "https://www.planmytrip.live/"},
-                { name: "Job Match Analyzer", description: "A full-stack AI-powered application to analyze resume-job description compatibility", link: "https://www.job-match-analyzer.live/" },
+                { name: "Plan My Trip", description: "A travel planning app to manage your itineraries and explore destinations.", link: "https://mohansai98.github.io/planmytrip/"},
+                { name: "Job Match Analyzer", description: "A full-stack AI-powered application to analyze resume-job description compatibility", link: "https://job-match-app-a0479a87cf00.herokuapp.com/" },
                 { name: "Task Management Application", description: "A full-stack application leveraging AWS services for efficient task tracking and management.", link: "https://github.com/task-management-cc/task-management" },
                 { name: "9 Men Morris Game", description: "A classic board game implemented using Python and Pygame, showcasing algorithmic thinking and game design principles.", link: "https://github.com/UMKC-Glitchers/9-men-morris" },
                 { name: "Twitter Sentiment Analysis", description: "A big data project analyzing Twitter data to determine sentiment, utilizing advanced data processing techniques and machine learning algorithms.", link: "#"}

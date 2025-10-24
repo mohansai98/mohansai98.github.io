@@ -9,6 +9,7 @@ import NineMenLogo from '../components/images/9-men.png';
 import TwitterLogo from '../components/images/twitter-logo.png';
 import JobMatchLogo from '../components/images/job-match.png';
 import PlanMyTripLogo from '../components/images/plan-my-trip.png';
+import DmvLogo from '../components/images/dmv-logo.jpeg';
 
 const SPA = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -56,7 +57,7 @@ const SPA = () => {
       <motion.section {...fadeIn} id="home" className="bg-gradient-to-br from-blue-500 to-purple-600 text-white py-20">
         <div className="container mx-auto text-center">
           <h1 className="text-5xl font-bold mb-4">Mohan Sai Singu</h1>
-          <p className="text-xl mb-8">Full Stack Developer | Java Enthusiast | Cloud Practitioner</p>
+          <p className="text-xl mb-8">Full Stack Developer | Java Enthusiast | Cloud Practitioner | Salesforce Developer</p>
           <a href="#about" className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300">
             Explore My Work <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
           </a>
@@ -101,10 +102,25 @@ const SPA = () => {
           <div className="max-w-3xl mx-auto">
             <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
               <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
+              <h3 className="text-xl font-semibold mb-2">Salesforce Developer</h3>
+              <h4 className="text-lg text-gray-600 mb-2">Nevada DMV
+                <a href='https://dmv.nv.gov' target='_blank' rel="noreferrer"><img src={DmvLogo} alt="TCS Logo" className="h-6 w-auto" /></a>
+              </h4>
+              <p className="text-gray-500 mb-4">May 2025 - Present</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Transitioned DMV processes from manual to online</li>
+                <li>Implemented dynamic document generation for complaint cases</li>
+                <li>Automated case workflows using Salesforce OmniStudio, LWC, SOQL</li>
+              </ul>
+            </div>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
+              <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
               <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
               <h4 className="text-lg text-gray-600 mb-2">Shineteck
               </h4>
-              <p className="text-gray-500 mb-4">Sep 2022 - Present</p>
+              <p className="text-gray-500 mb-4">Sep 2022 - May 2025</p>
               <ul className="list-disc list-inside space-y-2">
                 <li>Developed an ecommerce application</li>
                 <li>Led backend development using Spring Boot, MongoDB.</li>
@@ -173,7 +189,7 @@ const SPA = () => {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Plan My Trip</h3>
                 <p className="text-gray-600 mb-4">A travel planning app to manage your itineraries and explore destinations.</p>
-                <a href="https://www.planmytrip.live/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
+                <a href="https://mohansai98.github.io/planmytrip/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
               </div>
             </div>
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
@@ -181,7 +197,7 @@ const SPA = () => {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Job Match Analyzer</h3>
                 <p className="text-gray-600 mb-4">A full-stack AI-powered application to analyze resume-job description compatibility</p>
-                <a href="https://www.job-match-analyzer.live/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
+                <a href="https://job-match-app-a0479a87cf00.herokuapp.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
               </div>
             </div>
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
