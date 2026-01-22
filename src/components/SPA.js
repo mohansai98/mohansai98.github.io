@@ -54,7 +54,7 @@ const SPA = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
 
-      <motion.section {...fadeIn} id="home" className="bg-gradient-to-br from-blue-500 to-purple-600 text-white py-20">
+      <motion.section {...fadeIn} id="home" className="bg-blue-600 text-white py-20">
         <div className="container mx-auto text-center">
           <h1 className="text-5xl font-bold mb-4">Mohan Sai Singu</h1>
           <p className="text-xl mb-8">Full Stack Developer | Java Enthusiast | Cloud Practitioner | Salesforce Developer</p>
@@ -102,7 +102,7 @@ const SPA = () => {
           <div className="max-w-3xl mx-auto">
             <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
               <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
-              <h3 className="text-xl font-semibold mb-2">Salesforce Developer</h3>
+              <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
               <h4 className="text-lg text-gray-600 mb-2">Nevada DMV
                 <a href='https://dmv.nv.gov' target='_blank' rel="noreferrer"><img src={DmvLogo} alt="TCS Logo" className="h-6 w-auto" /></a>
               </h4>

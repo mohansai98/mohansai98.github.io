@@ -60,7 +60,7 @@ const PostmanUI = () => {
             experience: [
                 {
                     id: 1,
-                    title: "Salesforce Developer",
+                    title: "Software Engineer",
                     company: "Nevada DMV",
                     startDate: "May 2025",
                     endDate: "Present",
