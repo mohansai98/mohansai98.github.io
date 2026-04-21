@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBriefcase, faCode, faProjectDiagram, faEnvelope, faArrowRight, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBriefcase, faCode, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import taskLogo from '../components/images/task-manager.jpeg';
 import photo from '../components/images/photo.jpg';
-import tcsLogo from '../components/images/tcs-logo.png';
 import NineMenLogo from '../components/images/9-men.png';
-import TwitterLogo from '../components/images/twitter-logo.png';
 import JobMatchLogo from '../components/images/job-match.png';
 import PlanMyTripLogo from '../components/images/plan-my-trip.png';
-import DmvLogo from '../components/images/dmv-logo.jpeg';
+
+const BentoCard = ({ children, className = '', id = '' }) => (
+  <motion.div
+    id={id}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    whileHover={{ y: -4, transition: { duration: 0.2 } }}
+    className={`border-2 border-brutalist-black shadow-brutalist hover:shadow-brutalist-hover transition-all p-6 scroll-mt-24 ${className}`}
+  >
+    {children}
+  </motion.div>
+);
 
 const SPA = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [alertMessage, setAlertMessage] = useState(null);
-
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -51,249 +56,188 @@ const SPA = () => {
     }
   };
 
+  const skills = [
+    { category: "Languages", items: ["Java", "C", "SQL", "Python", "JavaScript", "TypeScript"] },
+    { category: "Back-End", items: ["Spring Boot", "Node.js", "Express"] },
+    { category: "Front-End", items: ["React", "Angular", "Next.js", "Tailwind"] },
+    { category: "Cloud & DB", items: ["AWS", "Postgres", "MongoDB", "Oracle"] },
+  ];
+
+  const projects = [
+    { title: "Plan My Trip", desc: "Travel planning app with itinerary management.", link: "https://mohansai98.github.io/planmytrip/", img: PlanMyTripLogo },
+    { title: "Job Match Analyzer", desc: "AI-powered resume-job compatibility tool.", link: "https://job-match-app-a0479a87cf00.herokuapp.com/", img: JobMatchLogo },
+    { title: "Task Manager", desc: "AWS-leveraged task tracking application.", link: "https://github.com/task-management-cc/task-management", img: taskLogo },
+    { title: "9 Men Morris", desc: "Classic board game implemented in Python.", link: "https://github.com/UMKC-Glitchers/9-men-morris", img: NineMenLogo },
+  ];
+
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <div className="container mx-auto px-4 py-12">
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+        
+        {/* HERO CARD */}
+        <BentoCard id="home" className="md:col-span-4 bg-brutalist-orange text-white flex flex-col justify-center">
+          <h1 className="text-5xl md:text-7xl font-black font-space tracking-tighter mb-4 leading-none">
+            MOHAN SAI<br/>SINGU
+          </h1>
+          <p className="text-xl md:text-2xl font-bold font-space uppercase mb-8 opacity-90">
+            Full Stack Developer & Java Enthusiast
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a href="#projects" className="bg-brutalist-black text-white px-6 py-3 font-space font-black uppercase text-sm hover:translate-x-1 hover:-translate-y-1 transition-transform border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+              View Projects
+            </a>
+            <a href="#contact" className="bg-white text-brutalist-black px-6 py-3 font-space font-black uppercase text-sm hover:translate-x-1 hover:-translate-y-1 transition-transform border-2 border-brutalist-black shadow-brutalist">
+              Get In Touch
+            </a>
+          </div>
+        </BentoCard>
 
-      <motion.section {...fadeIn} id="home" className="bg-blue-600 text-white py-20">
-        <div className="container mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4">Mohan Sai Singu</h1>
-          <p className="text-xl mb-8">Full Stack Developer | Java Enthusiast | Cloud Practitioner | Salesforce Developer</p>
-          <a href="#about" className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300">
-            Explore My Work <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
-          </a>
-        </div>
-      </motion.section>
+        {/* PHOTO CARD */}
+        <BentoCard className="md:col-span-2 p-0 overflow-hidden hidden md:block bg-white">
+          <img src={photo} alt="Mohan Sai Singu" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+        </BentoCard>
 
-      <motion.section {...fadeIn} id="about" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <FontAwesomeIcon icon={faUser} className="mr-2" />
+        {/* ABOUT CARD */}
+        <BentoCard id="about" className="md:col-span-3 bg-white">
+          <h2 className="text-3xl font-black font-space uppercase mb-6 flex items-center">
+            <FontAwesomeIcon icon={faUser} className="mr-3" />
             About Me
           </h2>
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <img
-                src={photo}
-                alt="Mohan Sai Singu"
-                className="rounded-full mx-auto w-64 h-64 object-cover"
-              />
-            </div>
-            <div className="md:w-1/2 md:pl-8">
-              <p className="text-lg mb-4">
-                I'm a software engineer who enjoys building web applications. I have experience working on microservices and machine learning models. I like solving challenging problems and learning new technologies to improve the software I develop.
-              </p>
-              <a
-                href="#contact"
-                className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block"
-              >
-                <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-                Get in Touch
-              </a>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-      <motion.section {...fadeIn} id="experience" className="bg-gray-100 py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
-            Experience
-          </h2>
-          <div className="max-w-3xl mx-auto">
-            <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
-              <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
-              <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
-              <h4 className="text-lg text-gray-600 mb-2">Nevada DMV
-                <a href='https://dmv.nv.gov' target='_blank' rel="noreferrer"><img src={DmvLogo} alt="TCS Logo" className="h-6 w-auto" /></a>
-              </h4>
-              <p className="text-gray-500 mb-4">May 2025 - Present</p>
-              <ul className="list-disc list-inside space-y-2">
-                <li>Transitioned DMV processes from manual to online</li>
-                <li>Implemented dynamic document generation for complaint cases</li>
-                <li>Automated case workflows using Salesforce OmniStudio, LWC, SOQL</li>
-              </ul>
-            </div>
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
-              <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
-              <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
-              <h4 className="text-lg text-gray-600 mb-2">Shineteck
-              </h4>
-              <p className="text-gray-500 mb-4">Sep 2022 - May 2025</p>
-              <ul className="list-disc list-inside space-y-2">
-                <li>Developed an ecommerce application</li>
-                <li>Led backend development using Spring Boot, MongoDB.</li>
-                <li>Built responsive frontend with Next.js, TypeScript.</li>
-              </ul>
-            </div>
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <div className="relative pl-8 pb-8 border-l-2 border-blue-500">
-              <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-0"></div>
-              <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
-              <h4 className="text-lg text-gray-600 mb-2">Tata Consultancy Services
-                <a href='https://tcs.com' target='_blank' rel="noreferrer"><img src={tcsLogo} alt="TCS Logo" className="h-6 w-auto" /></a>
-              </h4>
-              <p className="text-gray-500 mb-4">May 2019 - July 2022</p>
-              <ul className="list-disc list-inside space-y-2">
-                <li>Developed critical components of the Revenue Management System</li>
-                <li>Created a user-friendly Budget Preparation tool with data analysis features</li>
-                <li>Led the revamp of the Pension Portal, enhancing functionality and user experience</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </motion.section>
+          <p className="text-lg leading-relaxed font-medium">
+            I'm a software engineer who enjoys building web applications. I have experience working on microservices and machine learning models. I like solving challenging problems and learning new technologies to improve the software I develop.
+          </p>
+        </BentoCard>
 
-      <motion.section {...fadeIn} id="skills" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <FontAwesomeIcon icon={faCode} className="mr-2" />
+        {/* SKILLS CARD */}
+        <BentoCard id="skills" className="md:col-span-3 bg-brutalist-black text-white">
+          <h2 className="text-3xl font-black font-space uppercase mb-6 flex items-center text-brutalist-orange">
+            <FontAwesomeIcon icon={faCode} className="mr-3" />
             Skills
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Languages</h3>
-              <p>Java, C, SQL, Python, JavaScript, TypeScript</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Back-End</h3>
-              <p>Spring Boot, Spring (MVC, Security, JPA), Node.js</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Front-End</h3>
-              <p>HTML5, CSS3, Bootstrap, jQuery, React, Angular</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Databases</h3>
-              <p>Postgres, Oracle, MySQL, MongoDB</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Cloud</h3>
-              <p>Amazon Web Services (AWS)</p>
-            </div>
+          <div className="grid grid-cols-2 gap-4">
+            {skills.map((s, i) => (
+              <div key={i}>
+                <h3 className="font-space font-black uppercase text-xs text-gray-400 mb-1">{s.category}</h3>
+                <p className="font-bold text-sm">{s.items.join(", ")}</p>
+              </div>
+            ))}
           </div>
-        </div>
-      </motion.section>
+        </BentoCard>
 
-      <motion.section {...fadeIn} id="projects" className="bg-gray-100 py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <FontAwesomeIcon icon={faProjectDiagram} className="mr-2" />
-            Projects
+        {/* EXPERIENCE CARD */}
+        <BentoCard id="experience" className="md:col-span-6 bg-white">
+          <h2 className="text-3xl font-black font-space uppercase mb-8 flex items-center">
+            <FontAwesomeIcon icon={faBriefcase} className="mr-3 text-brutalist-orange" />
+            Experience
           </h2>
-          <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img src={PlanMyTripLogo} alt="Plan My Trip" className="w-full h-72 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Plan My Trip</h3>
-                <p className="text-gray-600 mb-4">A travel planning app to manage your itineraries and explore destinations.</p>
-                <a href="https://mohansai98.github.io/planmytrip/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img src={JobMatchLogo} alt="Job Match Analyzer" className="w-full h-72 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Job Match Analyzer</h3>
-                <p className="text-gray-600 mb-4">A full-stack AI-powered application to analyze resume-job description compatibility</p>
-                <a href="https://job-match-app-a0479a87cf00.herokuapp.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img src={taskLogo} alt="Task Management App" className="w-full h-72 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Task Management Application</h3>
-                <p className="text-gray-600 mb-4">A full-stack application leveraging AWS services for efficient task tracking and management.</p>
-                <a href="https://github.com/task-management-cc/task-management" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img src={NineMenLogo} alt="9 Men Morris Game" className="w-full h-72 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">9 Men Morris Game</h3>
-                <p className="text-gray-600 mb-4">A classic board game implemented using Python and Pygame, showcasing algorithmic thinking and game design principles.</p>
-                <a href="https://github.com/UMKC-Glitchers/9-men-morris" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">Learn More</a>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img src={TwitterLogo} alt="Twitter Sentiment Analysis" className="w-full h-72 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Twitter Sentiment Analysis</h3>
-                <p className="text-gray-600 mb-4">A big data project analyzing Twitter data to determine sentiment, utilizing advanced data processing techniques and machine learning algorithms.</p>
-                <a href="/" className="text-blue-600 hover:text-blue-800">Learn More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
-      <motion.section {...fadeIn} id="contact" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-            Get in Touch
-          </h2>
-          <div className="max-w-lg mx-auto">
-            {alertMessage && (
-              <div className={`mb-6 p-4 rounded-md ${alertMessage.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                <div className="flex justify-between items-center">
-                  <p>{alertMessage.text}</p>
-                  <button onClick={() => setAlertMessage(null)} className="text-current hover:text-gray-700">
-                    <FontAwesomeIcon icon={faTimes} />
-                  </button>
+          <div className="space-y-8">
+            <div className="border-l-4 border-brutalist-black pl-6 relative">
+              <div className="absolute w-4 h-4 bg-brutalist-orange border-2 border-brutalist-black rounded-none -left-[10px] top-1"></div>
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <h3 className="text-xl font-black font-space uppercase">Software Engineer</h3>
+                  <p className="font-bold text-brutalist-orange">Nevada DMV</p>
                 </div>
+                <span className="font-space font-black text-xs uppercase bg-brutalist-black text-white px-2 py-1">2025 - PRESENT</span>
               </div>
-            )}
-            <form onSubmit={handleSubmit}>
-              <div className="mb-6">
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Your Name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
+              <p className="text-sm font-medium">Transitioned DMV processes from manual to online. Automated case workflows using Salesforce OmniStudio, LWC, SOQL.</p>
+            </div>
+
+            <div className="border-l-4 border-brutalist-black pl-6 relative">
+              <div className="absolute w-4 h-4 bg-brutalist-black border-2 border-brutalist-black rounded-none -left-[10px] top-1"></div>
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <h3 className="text-xl font-black font-space uppercase">Software Engineer</h3>
+                  <p className="font-bold text-brutalist-orange">Shineteck</p>
+                </div>
+                <span className="font-space font-black text-xs uppercase bg-gray-200 text-brutalist-black px-2 py-1">2022 - 2025</span>
               </div>
-              <div className="mb-6">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="Your Email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
+              <p className="text-sm font-medium">Developed an ecommerce application. Led backend development using Spring Boot, MongoDB.</p>
+            </div>
+
+            <div className="border-l-4 border-brutalist-black pl-6 relative">
+              <div className="absolute w-4 h-4 bg-brutalist-black border-2 border-brutalist-black rounded-none -left-[10px] top-1"></div>
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <h3 className="text-xl font-black font-space uppercase">Software Engineer</h3>
+                  <p className="font-bold text-brutalist-orange">Tata Consultancy Services</p>
+                </div>
+                <span className="font-space font-black text-xs uppercase bg-gray-200 text-brutalist-black px-2 py-1">2019 - 2022</span>
               </div>
-              <div className="mb-6">
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows="5"
-                  placeholder="Your Message"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                ></textarea>
-              </div>
-              <div className="text-center">
-                <button type="submit" className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300">
-                  <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-                  Send Message
-                </button>
-              </div>
+              <p className="text-sm font-medium">Developed critical components of Revenue Management System. Led revamp of Pension Portal.</p>
+            </div>
+          </div>
+        </BentoCard>
+
+        {/* PROJECTS SECTION HEADER */}
+        <div id="projects" className="md:col-span-6 py-4 scroll-mt-24">
+          <h2 className="text-4xl font-black font-space uppercase tracking-tighter border-b-4 border-brutalist-black inline-block">Featured Projects</h2>
+        </div>
+
+        {/* PROJECT CARDS */}
+        {projects.map((p, i) => (
+          <BentoCard key={i} className="md:col-span-3 group p-0 overflow-hidden flex flex-col bg-white">
+            <div className="h-48 overflow-hidden border-b-2 border-brutalist-black">
+              <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div className="p-6 flex-grow flex flex-col">
+              <h3 className="text-2xl font-black font-space uppercase mb-2">{p.title}</h3>
+              <p className="text-sm font-medium mb-4 flex-grow">{p.desc}</p>
+              <a href={p.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-space font-black uppercase text-xs text-brutalist-orange hover:underline">
+                View Project <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
+              </a>
+            </div>
+          </BentoCard>
+        ))}
+
+        {/* CONTACT CARD */}
+        <BentoCard id="contact" className="md:col-span-6 bg-brutalist-cream">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-black font-space uppercase mb-6">Let's Work<br/><span className="text-brutalist-orange">Together</span></h2>
+              <p className="font-bold mb-8">Have a project in mind or just want to say hi? Feel free to reach out!</p>
+              {alertMessage && (
+                <div className={`mb-6 p-4 border-2 border-brutalist-black ${alertMessage.type === 'success' ? 'bg-green-100' : 'bg-red-100'}`}>
+                  <p className="font-bold">{alertMessage.text}</p>
+                </div>
+              )}
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="YOUR NAME"
+                className="w-full p-4 border-2 border-brutalist-black font-space font-bold uppercase text-xs focus:bg-brutalist-orange focus:text-white outline-none transition-colors"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="YOUR EMAIL"
+                className="w-full p-4 border-2 border-brutalist-black font-space font-bold uppercase text-xs focus:bg-brutalist-orange focus:text-white outline-none transition-colors"
+                required
+              />
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                rows="4"
+                placeholder="YOUR MESSAGE"
+                className="w-full p-4 border-2 border-brutalist-black font-space font-bold uppercase text-xs focus:bg-brutalist-orange focus:text-white outline-none transition-colors"
+                required
+              ></textarea>
+              <button type="submit" className="w-full bg-brutalist-black text-white p-4 font-space font-black uppercase hover:bg-brutalist-orange transition-colors shadow-brutalist">
+                Send Message
+              </button>
             </form>
           </div>
-        </div>
-      </motion.section>
+        </BentoCard>
 
-
+      </div>
     </div>
   );
 };

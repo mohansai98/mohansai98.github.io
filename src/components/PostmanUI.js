@@ -217,148 +217,173 @@ const PostmanUI = () => {
         }
         // eslint-disable-next-line
         return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
-            let cls = 'text-pink-400';
+            let cls = 'text-emerald-400'; // Strings
             if (/^"/.test(match)) {
                 if (/:$/.test(match)) {
-                    cls = 'text-orange-400';
-                } else {
-                    cls = 'text-green-400';
+                    cls = 'text-sky-400'; // Keys
                 }
             } else if (/true|false/.test(match)) {
-                cls = 'text-blue-400';
+                cls = 'text-fuchsia-400'; // Booleans
             } else if (/null/.test(match)) {
-                cls = 'text-red-500';
+                cls = 'text-rose-500'; // Null
+            } else if (/-?\d+/.test(match)) {
+                cls = 'text-amber-400'; // Numbers
             }
             return `<span class="${cls}">${match}</span>`;
         });
     };
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-[#2E2E2E] text-white p-4">
-            <div className="md:col-span-4 bg-[#1C1C1C] rounded-lg shadow-md p-4 mb-4">
-                <h2 className="text-xl font-bold mb-2">Welcome to my website!</h2>
-                <p className="mb-2">Try out my APIs to experience some part of the backend development.</p>
-                <p>To get started, click on the send request button and check what happens in the response.</p>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-brutalist-black text-white p-6 font-inter min-h-screen">
+            {/* Header / Intro */}
+            <div className="md:col-span-4 bg-[#1e1e1e] border border-[#333] p-6 rounded-none shadow-brutalist relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1 h-full bg-postman-orange"></div>
+                <h2 className="text-2xl font-black font-space uppercase mb-2 tracking-tight">Interactive Terminal <span className="text-postman-orange text-sm ml-2 opacity-50 font-mono">v2.0.4</span></h2>
+                <p className="text-gray-400 font-medium max-w-2xl">
+                    Execute live API requests to explore my background. This terminal simulates a REST client connected to my profile's backend services.
+                </p>
             </div>
-            <div className="md:col-span-1 bg-[#1C1C1C] rounded-lg shadow-md p-4">
-                <h2 className="text-xl font-bold mb-4">APIs</h2>
-                <ul className="space-y-2">
+
+            {/* Sidebar / Collections */}
+            <div className="md:col-span-1 bg-[#1e1e1e] border border-[#333] p-4 flex flex-col">
+                <h3 className="text-xs font-black font-space uppercase text-gray-500 mb-4 tracking-widest">Collections</h3>
+                <ul className="space-y-1">
                     {myApiCollections.map((collection, index) => (
                         <li
                             key={index}
-                            className={`cursor-pointer p-2 rounded transition-colors ${selectedCollection === collection
-                                    ? 'bg-orange-500 text-white'
-                                    : 'hover:bg-[#3C3C3C]'
+                            className={`cursor-pointer px-3 py-2 text-sm font-bold transition-all flex items-center group ${selectedCollection === collection
+                                    ? 'bg-postman-orange text-white'
+                                    : 'hover:bg-[#2d2d2d] text-gray-400'
                                 }`}
                             onClick={() => {
                                 setSelectedCollection(collection);
                                 displayEndpoints(collection.endpoints);
                             }}
                         >
+                            <span className={`w-2 h-2 rounded-full mr-3 ${selectedCollection === collection ? 'bg-white' : 'bg-[#444] group-hover:bg-postman-orange'}`}></span>
                             {collection.name}
                         </li>
                     ))}
                 </ul>
             </div>
-            <div className="md:col-span-3 space-y-4">
-            <div className="bg-[#1C1C1C] rounded-lg shadow-md p-4">
-    <h2 className="text-xl font-bold mb-4 text-white">API Request</h2>
-    <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-            <select
-                value={method}
-                onChange={(e) => {
-                    setMethod(e.target.value);
-                    setShowRequestBody(e.target.value === 'POST');
-                }}
-                className="w-full sm:w-auto bg-[#3C3C3C] border border-orange-500 rounded p-2 text-white"
-            >
-                <option value="GET">GET</option>
-                <option value="POST">POST</option>
-            </select>
-            <input
-                type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="api/endpoint"
-                className="w-full sm:flex-grow bg-[#3C3C3C] border border-orange-500 rounded p-2 text-white"
-            />
-            <button 
-                type="submit" 
-                className="w-full sm:w-auto bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors flex items-center justify-center"
-            >
-                Send Request
-            </button>
-        </div>
-    </form>
-</div>
-                {showRequestBody && (
-                    <div className="bg-[#1C1C1C] rounded-lg shadow-md p-4">
-                        <h2 className="text-xl font-bold mb-4">Request Body</h2>
-                        <div className="space-y-4">
-                            <div>
-                                <label htmlFor="name" className="block mb-1">Name:</label>
+
+            {/* Main Request Area */}
+            <div className="md:col-span-3 space-y-6">
+                <div className="bg-[#1e1e1e] border border-[#333] p-6 shadow-lg">
+                    <div className="flex items-center space-x-2 mb-6">
+                        <div className="w-3 h-3 rounded-full bg-red-500 opacity-50"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-50"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500 opacity-50"></div>
+                        <span className="text-[10px] font-black font-space uppercase text-gray-600 ml-4 tracking-tighter">Request Builder</span>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-2">
+                            <select
+                                value={method}
+                                onChange={(e) => {
+                                    setMethod(e.target.value);
+                                    setShowRequestBody(e.target.value === 'POST');
+                                }}
+                                className="w-full sm:w-32 bg-[#2d2d2d] border border-[#444] px-4 py-3 text-sm font-black font-space text-postman-orange focus:border-postman-orange outline-none cursor-pointer"
+                            >
+                                <option value="GET">GET</option>
+                                <option value="POST">POST</option>
+                            </select>
+                            <div className="flex-grow flex items-center bg-[#2d2d2d] border border-[#444] focus-within:border-postman-orange transition-colors">
+                                <span className="pl-4 text-gray-500 font-mono text-[10px] md:text-xs whitespace-nowrap flex-shrink-0 select-none">https://api.mohansai.dev/</span>
                                 <input
                                     type="text"
-                                    id="name"
-                                    value={requestBody.name}
-                                    onChange={(e) => setRequestBody({ ...requestBody, name: e.target.value })}
-                                    className="w-full bg-[#3C3C3C] border border-orange-500 rounded p-2 text-white"
+                                    value={url}
+                                    onChange={(e) => setUrl(e.target.value)}
+                                    placeholder="endpoint"
+                                    className="flex-grow bg-transparent border-none pl-1 pr-4 py-3 text-sm font-bold text-white outline-none font-mono min-w-0"
                                 />
                             </div>
-                            <div>
-                                <label htmlFor="email" className="block mb-1">Email:</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    value={requestBody.email}
-                                    onChange={(e) => setRequestBody({ ...requestBody, email: e.target.value })}
-                                    className="w-full bg-[#3C3C3C] border border-orange-500 rounded p-2 text-white"
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="message" className="block mb-1">Message:</label>
-                                <textarea
-                                    id="message"
-                                    value={requestBody.message}
-                                    onChange={(e) => setRequestBody({ ...requestBody, message: e.target.value })}
-                                    className="w-full bg-[#3C3C3C] border border-orange-500 rounded p-2 text-white"
-                                    rows="4"
-                                />
-                            </div>
+                            <button 
+                                type="submit" 
+                                className="w-full sm:w-auto bg-postman-orange text-white px-8 py-3 font-space font-black uppercase text-sm hover:bg-[#ff8559] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none"
+                            >
+                                Send
+                            </button>
                         </div>
-                    </div>
-                )}
-                {response && (
-                    <div className="bg-[#1C1C1C] rounded-lg shadow-md p-4">
-                        <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-xl font-bold">Response</h2>
-                            <div className={`px-2 py-1 rounded ${response.status >= 200 && response.status < 300 ? 'bg-green-500' : 'bg-red-500'}`}>
-                                {response.status} {response.statusText}
+
+                        {showRequestBody && (
+                            <div className="border-t border-[#333] pt-6 animate-in fade-in duration-300">
+                                <h3 className="text-xs font-black font-space uppercase text-gray-500 mb-4 tracking-widest">Payload (JSON)</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input
+                                        type="text"
+                                        placeholder="Name"
+                                        value={requestBody.name}
+                                        onChange={(e) => setRequestBody({ ...requestBody, name: e.target.value })}
+                                        className="bg-[#2d2d2d] border border-[#444] p-3 text-sm focus:border-postman-orange outline-none"
+                                    />
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        value={requestBody.email}
+                                        onChange={(e) => setRequestBody({ ...requestBody, email: e.target.value })}
+                                        className="bg-[#2d2d2d] border border-[#444] p-3 text-sm focus:border-postman-orange outline-none"
+                                    />
+                                    <textarea
+                                        placeholder="Message..."
+                                        value={requestBody.message}
+                                        onChange={(e) => setRequestBody({ ...requestBody, message: e.target.value })}
+                                        className="md:col-span-2 bg-[#2d2d2d] border border-[#444] p-3 text-sm focus:border-postman-orange outline-none h-24"
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex mb-4">
+                        )}
+                    </form>
+                </div>
+
+                {/* Response Area */}
+                <div className="bg-[#1e1e1e] border border-[#333] shadow-lg overflow-hidden min-h-[300px] flex flex-col">
+                    <div className="bg-[#252525] px-6 py-3 flex justify-between items-center border-b border-[#333]">
+                        <div className="flex space-x-4">
                             <button
-                                className={`mr-2 px-4 py-2 rounded ${responseTab === 'raw' ? 'bg-orange-500' : 'bg-[#3C3C3C]'}`}
+                                className={`text-[10px] font-black font-space uppercase tracking-widest pb-1 transition-all ${responseTab === 'raw' ? 'text-postman-orange border-b-2 border-postman-orange' : 'text-gray-500 hover:text-gray-300'}`}
                                 onClick={() => setResponseTab('raw')}
                             >
-                                Raw
+                                Body
                             </button>
                             <button
-                                className={`px-4 py-2 rounded ${responseTab === 'pretty' ? 'bg-orange-500' : 'bg-[#3C3C3C]'}`}
+                                className={`text-[10px] font-black font-space uppercase tracking-widest pb-1 transition-all ${responseTab === 'pretty' ? 'text-postman-orange border-b-2 border-postman-orange' : 'text-gray-500 hover:text-gray-300'}`}
                                 onClick={() => setResponseTab('pretty')}
                             >
-                                Pretty
+                                Visualize
                             </button>
                         </div>
-                        <pre className="bg-[#3C3C3C] p-4 rounded overflow-x-auto">
-                            {responseTab === 'raw'
-                                ? JSON.stringify(response.data, null, 2)
-                                : <div dangerouslySetInnerHTML={{ __html: formatPrettyJson(response.data) }} />
-                            }
-                        </pre>
+                        {response && (
+                            <div className="flex items-center space-x-4">
+                                <span className="text-[10px] font-mono text-gray-500">Status:</span>
+                                <span className={`text-[10px] font-black font-mono px-2 py-0.5 rounded ${response.status >= 200 && response.status < 300 ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
+                                    {response.status} {response.statusText}
+                                </span>
+                            </div>
+                        )}
                     </div>
-                )}
+
+                    <div className="p-6 flex-grow font-mono text-sm overflow-auto bg-[#1a1a1a]">
+                        {!response ? (
+                            <div className="h-full flex flex-col items-center justify-center text-gray-600 space-y-4">
+                                <div className="w-12 h-12 border-2 border-dashed border-[#333] rounded-full animate-spin-slow"></div>
+                                <p className="text-xs uppercase font-space font-black tracking-widest">Awaiting Request...</p>
+                            </div>
+                        ) : (
+                            <div className="animate-in slide-in-from-bottom-2 duration-300">
+                                {responseTab === 'raw' ? (
+                                    <pre className="whitespace-pre-wrap break-all text-gray-300">
+                                        {JSON.stringify(response.data, null, 4)}
+                                    </pre>
+                                ) : (
+                                    <pre className="pretty-json whitespace-pre-wrap break-all text-gray-300" dangerouslySetInnerHTML={{ __html: formatPrettyJson(response.data) }} />
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     );
