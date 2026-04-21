@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.6328f135.css",
-    "main.js": "/static/js/main.f2c0c57c.js",
+    "main.css": "/static/css/main.9ce285c1.css",
+    "main.js": "/static/js/main.c08d513f.js",
     "static/js/453.acca0757.chunk.js": "/static/js/453.acca0757.chunk.js",
     "static/media/photo.jpg": "/static/media/photo.9818c01865b17b2b7759.jpg",
     "static/media/plan-my-trip.png": "/static/media/plan-my-trip.6dde136e3d387ee85a4c.png",
     "static/media/9-men.png": "/static/media/9-men.30b59a84b4d35a606413.png",
-    "static/media/twitter-logo.png": "/static/media/twitter-logo.3324727f4c076112cd9b.png",
-    "static/media/tcs-logo.png": "/static/media/tcs-logo.e3bf551cf128afb08d62.png",
     "static/media/job-match.png": "/static/media/job-match.bde0fc28755d32f6fb8c.png",
     "static/media/task-manager.jpeg": "/static/media/task-manager.616975cc8fc1fa5dc921.jpeg",
     "index.html": "/index.html",
-    "main.6328f135.css.map": "/static/css/main.6328f135.css.map",
-    "main.f2c0c57c.js.map": "/static/js/main.f2c0c57c.js.map",
+    "main.9ce285c1.css.map": "/static/css/main.9ce285c1.css.map",
+    "main.c08d513f.js.map": "/static/js/main.c08d513f.js.map",
     "453.acca0757.chunk.js.map": "/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6328f135.css",
-    "static/js/main.f2c0c57c.js"
+    "static/css/main.9ce285c1.css",
+    "static/js/main.c08d513f.js"
   ]
 }
